@@ -16,7 +16,7 @@ export default class Items extends React.Component {
   };
 
   componentDidMount() {
-    axios.get('http://b127d50d.ngrok.io/phones')
+    axios.get('http://c47b8dac.ngrok.io/phones')
       .then(res => {
         this.setState({
           phones: res.data

@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity, Alert } from 'react-native';
 
 export default class Item extends React.Component {
   static navigationOptions = ({ navigation }) => {
@@ -12,12 +12,16 @@ export default class Item extends React.Component {
     const { navigation, onAddToCartClick } = this.props;
     const phoneSeller = navigation.getParam('phoneSeller');
     const phonePrice = navigation.getParam('phonePrice');
-
+    const showAlertSuccess = () => {
+      Alert.alert(
+        'Added to Cart'
+      )
+    }
     return (
       <View style={styles.container}>
         <Text>{phoneSeller}</Text>
         <Text>{phonePrice}</Text>
-        <TouchableOpacity onPress={onAddToCartClick}>
+        <TouchableOpacity onPress={onAddToCartClick} onPress={showAlertSuccess}>
           <Text style={styles.cartText}>Mua +</Text>
         </TouchableOpacity>
       </View>
